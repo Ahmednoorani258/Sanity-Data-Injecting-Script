@@ -18,6 +18,10 @@ async function importShipmentData() {
             const sanityShipment = {
                 _id: `shipment-${shipment.tracking_id}`, // Unique ID based on tracking_id
                 _type: 'shipment',
+                sales: {
+                    _type: 'reference',
+                    _ref: `sale-${shipment.order_id}`, // Reference to the product ID
+                },
                 tracking_id: shipment.tracking_id,
                 order_id: shipment.order_id,
                 shipment_status: shipment.shipment_status,

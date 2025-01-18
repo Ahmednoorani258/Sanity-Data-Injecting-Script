@@ -16,7 +16,7 @@ async function importSalesData() {
         // Iterate over the sales records
         for (const sale of sales) {
             const sanitySale = {
-                _id: `sale-${sale.sale_id}`, // Unique ID based on sale_id
+                _id: `sale-${sale.sale_id}`,
                 _type: 'sales',
                 product: {
                     _type: 'reference',

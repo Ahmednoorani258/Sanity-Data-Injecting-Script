@@ -33,7 +33,7 @@ async function importData() {
                 imageRef = await uploadImageToSanity(product.image);
             }
             const sanityProduct = {
-                _id: `product-${product.id}`, // Prefix the ID to ensure validity
+                _id: `${product.id}`, // Prefix the ID to ensure validity
                 _type: 'product',
                 name: product.name, // Changed to match your API data
                 price: product.price,
@@ -48,6 +48,10 @@ async function importData() {
                 },
                 description: product.description,
                 rating: product.rating || 0,
+                discountPercentage: product.discountPercentage || 0,
+                category: product.category || '',
+                isFeaturedProduct: product.isFeaturedProduct || false,
+                stockLevel: product.stockLevel || 0,
             };
             console.log('Uploading product:', sanityProduct);
             // Import data into Sanity
